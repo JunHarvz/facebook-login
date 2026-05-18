@@ -76,5 +76,5 @@ app.listen(PORT, () => {
 });
 
 app.use(cors({
-  origin: 'http://localhost:5173'
+  origin: 'https://wxfkz9sq-5173.asse.devtunnels.ms/'
 }));

